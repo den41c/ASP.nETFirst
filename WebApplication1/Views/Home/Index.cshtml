@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+<!DOCTYPE html>
+#liniya { 
+width:110px; 
+height:50px; 
+background:#669900; 
+float:left; 
+margin-left:15px; 
+text-align:center;
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+   <!-- <link type="text/css" rel="stylesheet" href="../../Content/Site.css" /> -->
+    <title>Книжный магазин</title>
+</head>
+<body>
+    <div>
+        <h3>Распродажа книг</h3>
+        <table>
+            <tr>
+                <td><p>Название книги</p></td>
+                <td><p>Автор</p></td>
+                <td><p>Цена</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.Books)
+            {
+                <tr>
+                    <td><p>@b.Name</p></td>
+                    <td><p>@b.Author</p></td>
+                    <td><p>@b.Price</p></td>
+                    <td><p>@Html.CheckBox("Checked", false)</p></td>
+                    <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+        <button type="button" onclick="alert('Whoila!')">Loggin!</button>
+    </div>
+    <div id="liniya">DIV - 1</div> <div id="liniya">DIV - 2</div>
+
+</body>
+</html>
